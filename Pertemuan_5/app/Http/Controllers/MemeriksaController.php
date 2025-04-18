@@ -25,10 +25,6 @@ class MemeriksaController extends Controller
         $detail_periksa = DetailPeriksa::find($id);
 
         $selected_obats = [];
-        if ($detail_periksa) {
-            // Asumsikan ada relasi 'obats' di model DetailPeriksa
-            $selected_obats = $detail_periksa->obats->pluck('id')->toArray();
-        }
 
         return view('dokter.memeriksa.create', data: compact('detail_periksa', 'periksa', 'obats', 'selected_obats', ));
     }
